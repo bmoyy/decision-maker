@@ -17,3 +17,5 @@
 - As a voter I'd like to add my name so the creator knows I have completed the vote.
 - As a creator I'd like to see in the results who all voted so I can make sure I get input from all the voters I need it from.
 - As a creator I'd like to know how many total people have voted in the poll so I can see at a glance whether I have enough votes to make the final decision.
+- As a creator, I don't want voters to be able to vote more than once so the results are fair.
+- As a creator, I want to be able to set a deadline of when votes need to be submitted so the decision is made in a timely manner.
