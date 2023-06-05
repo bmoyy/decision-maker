@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Righteous&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
+  <link rel="stylesheet" href="/styles/new-poll.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <nav>
+    <span id="title">Decision Maker</span>
+    <div class="subtext">
+      <span>Create a New Poll</span>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="new-poll">
+
+      <div class="email-box">
+        <div class="email-text">
+          <p>To get started, please enter your email</p>
+        </div>
+        <form method="POST" action="/poll/email" id="email-submit">
+          <input id="email-input"></input>
+        </form>
+      </div>
+
+      <div class="poll-question">
+        <p>What is your question?</p>
+        <form method="POST" action="/poll" id="question-input">
+          <input placeholder="Enter question here..." name="question" id="question-input"></input>
+          <p>What are your options?</p>
+          <div class="choice-box">
+            <div>
+              <label for="choice-input">1.</label>
+              <input placeholder="Enter text here" name="choice" id="choice-input"></input>
+            </div>
+            <br />
+            <div>
+              <label for="choice-input">2.</label>
+              <input placeholder="Enter text here" name="choice" id="choice-input"></input>
+            </div>
+            <br />
+            <div>
+              <label for="choice-input">3.</label>
+              <input placeholder="Enter text here" name="choice" id="choice-input"></input>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <button form="email-submit" class="button" type="submit" id="poll-submit">GET STARTED</button>
+  </footer>
+
+</body>
+
+</html>

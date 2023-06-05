@@ -1,0 +1,48 @@
+#poll-submit {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: #24243E;
+  font-size: 55px;
+}
+
+#new-poll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.email-box {
+  display: none;
+}
+
+.email-text {
+  font-family: "Acme", sans-serif;
+  color: #FFFFFF;
+  font-size: 30px;
+  display: flex;
+}
+
+#email-submit {
+  display: flex;
+  justify-content: center;
+}
+#email-input {
+  width: 65%;
+}
+
+.poll-question {
+  color: #FFFFFF;
+  font-family: "Acme", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.choice-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
