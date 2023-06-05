@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS choices CASCADE;
-
-CREATE TABLE choices (
-  id SERIAL PRIMARY KEY NOT NULL,
-  value TEXT NOT NULL,
-  rank INT NOT NULL,
-  poll_id INTEGER REFERENCES polls(id)
-);
