@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS links CASCADE;
+
+CREATE TABLE links (
+ id SERIAL PRIMARY KEY NOT NULL,
+ url TEXT NOT NULL,
+ user_id INTEGER REFERENCES users(id),
+ poll_id INTEGER REFERENCES polls(id)
+);
