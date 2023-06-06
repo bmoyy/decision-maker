@@ -11,6 +11,8 @@ const { createPoll } = require('../db/queries/polls');
 const app = express();
 app.use(cookieParser());
 
+let userEmail = '';
+
 // GET /polls
 // User loads app & form to enter email to create poll
 router.get('/', (req, res) => {
@@ -23,10 +25,10 @@ router.get('/', (req, res) => {
 // POST /polls/email
 // User enters email and submits email form
 router.post('/email', (req, res) => {
-  const userEmail = req.body.email;
-  const user = {email: userEmail};
+  userEmail = req.body.email;
+  const user = { email: userEmail };
 
-checkForUser(user).then((result) => {
+  checkForUser(user).then((result) => {
     if (!result.id) {
       addUser(user);
       res.cookie('userEmail', userEmail);
@@ -39,22 +41,30 @@ checkForUser(user).then((result) => {
   });
 });
 
-router.post('/', (req,res) => {
+router.post('/', (req, res) => {
   const pollData = req.body;
-  console.log(pollData);
+  const user = { email: userEmail };
+
+  checkForUser(user)
+    .then((result) => {
+      pollData.user_id = result[0].id;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 
   createPoll(pollData)
-  .then((poll) => {
-    return res.render('polls/:id', poll); // placeholder
-  }).catch((err) => {
-    console.log(err);
-  });
-  return res.send('working');
-})
+    .then((poll) => {
+      return res.render('link', poll); // placeholder
+    }).catch((err) => {
+      console.log(err);
+    });
+
+});
 
 // placeholder
 router.get('/:id', (req, res) => {
   res.render('polls/:id');
-})
+});
 
 module.exports = router;
