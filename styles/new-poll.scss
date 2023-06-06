@@ -1,6 +1,20 @@
 $font-color: #FFFFFF;
 $body-font: "Acme", sans-serif;
 
+p {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-right: 5px;
+}
+
 #poll-submit {
   background-color: transparent;
   background-repeat: no-repeat;
@@ -18,22 +32,11 @@ $body-font: "Acme", sans-serif;
   justify-content: center;
 }
 
-.email-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .email-text {
   font-family: $body-font;
   color: $font-color;
   font-size: 30px;
   text-align: center;
-}
-
-#email-submit {
-  display: flex;
-  justify-content: center;
 }
 
 #email-input {
@@ -47,14 +50,13 @@ $body-font: "Acme", sans-serif;
   color: $font-color;
   font-family: $body-font;
   font-size: 30px;
-  display: flex;
-  flex-direction: column;
 }
 
 .choice-box {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 #show-description {
@@ -67,7 +69,13 @@ $body-font: "Acme", sans-serif;
   overflow: hidden;
 }
 
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
 #poll-description, #question-input {
   resize: none;
-  width: 92%;
 }
