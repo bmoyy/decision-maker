@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Decision Maker</title>
+  <title>Decision Maker - Poll Created!</title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
   <link rel="stylesheet" href="/styles/footer.css" />
-  <link rel="stylesheet" href="/styles/new-poll.css" />
+  <link rel="stylesheet" href="/styles/link.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
@@ -33,18 +33,17 @@
   </nav>
 
   <main class="container">
-    <section class="new-poll">
-      <div class="email-box">
-        <p class="email-text">To get started, please enter your email</p>
-        <form method="POST" action="/polls/email" id="email-submit">
-          <input id="email-input" name="email" type="email" required></input>
-        </form>
-      </div>
+    <section class="message">
+      <h3>Your poll has been created!</h3>
+    </section>
+    <section class="link">
+      <p>Here's a link for voters and for you to see the results:</p>
+      <a href="http://localhost:8080/polls/1">Poll 1</a>
     </section>
   </main>
 
   <footer>
-    <button form="email-submit" class="button" type="submit" id="email-submit">GET STARTED</button>
+    <button form="start-again" class="button" type="submit" id="start-again">START AGAIN</button>
   </footer>
 
 </body>

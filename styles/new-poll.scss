@@ -1,3 +1,20 @@
+$font-color: #FFFFFF;
+$body-font: "Acme", sans-serif;
+
+p {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-right: 5px;
+}
+
 #poll-submit {
   background-color: transparent;
   background-repeat: no-repeat;
@@ -15,47 +32,36 @@
   justify-content: center;
 }
 
-.email-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .email-text {
-  font-family: "Acme", sans-serif;
-  color: #FFFFFF;
+  font-family: $body-font;
+  color: $font-color;
   font-size: 30px;
-  display: flex;
-  justify-content: center;
-}
-
-#email-submit {
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 #email-input {
-  width: 60%;
+  width: 90%;
+  font-family: $body-font;
   font-size: 30px;
+  border-radius: 5px;
 }
 
 .poll-question {
-  color: #FFFFFF;
-  font-family: "Acme", sans-serif;
+  color: $font-color;
+  font-family: $body-font;
   font-size: 30px;
-  display: flex;
-  flex-direction: column;
 }
 
 .choice-box {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 #show-description {
   font-size: 17px;
-  color: #FFFFFF;
+  color: $font-color;
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
@@ -63,7 +69,13 @@
   overflow: hidden;
 }
 
-#poll-description {
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+#poll-description, #question-input {
   resize: none;
-  width: 92%;
 }
