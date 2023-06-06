@@ -1,3 +1,6 @@
+$font-color: #FFFFFF;
+$body-font: "Acme", sans-serif;
+
 #poll-submit {
   background-color: transparent;
   background-repeat: no-repeat;
@@ -22,8 +25,8 @@
 }
 
 .email-text {
-  font-family: "Acme", sans-serif;
-  color: #FFFFFF;
+  font-family: $body-font;
+  color: $font-color;
   font-size: 30px;
   text-align: center;
 }
@@ -34,13 +37,15 @@
 }
 
 #email-input {
-  width: 60%;
+  width: 90%;
+  font-family: $body-font;
   font-size: 30px;
+  border-radius: 5px;
 }
 
 .poll-question {
-  color: #FFFFFF;
-  font-family: "Acme", sans-serif;
+  color: $font-color;
+  font-family: $body-font;
   font-size: 30px;
   display: flex;
   flex-direction: column;
@@ -54,7 +59,7 @@
 
 #show-description {
   font-size: 17px;
-  color: #FFFFFF;
+  color: $font-color;
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
