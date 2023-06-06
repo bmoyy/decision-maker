@@ -34,43 +34,12 @@
 
   <main class="container">
     <section class="new-poll">
-
       <div class="email-box">
         <div class="email-text">
           <p>To get started, please enter your email</p>
         </div>
         <form method="POST" action="/polls/email" id="email-submit">
           <input id="email-input" name="email" type="email" required></input>
-        </form>
-      </div>
-
-      <div class="poll-question">
-        <form method="POST" action="/polls" id="poll-input" hidden>
-          <div class="question-text">
-            <p>What is your question?</p>
-          </div>
-          <input placeholder="Enter question here..." name="question" id="question-input"></input>
-          <div class="description">
-            <button type="button" id="show-description">Add a description</button>
-            <textarea placeholder="(Optional)" name="description" id="poll-description" hidden></textarea>
-          </div>
-          <p>What are your options?</p>
-          <div class="choice-box">
-            <div>
-              <label for="choice-input-1">1.</label>
-              <input placeholder="Enter text here..." name="choice1" id="choice-input-1"></input>
-            </div>
-            <br />
-            <div>
-              <label for="choice-input-2">2.</label>
-              <input placeholder="Enter text here..." name="choice2" id="choice-input-2"></input>
-            </div>
-            <br />
-            <div>
-              <label for="choice-input-3">3.</label>
-              <input placeholder="Enter text here..." name="choice3" id="choice-input-3"></input>
-            </div>
-          </div>
         </form>
       </div>
     </section>
