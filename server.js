@@ -9,9 +9,7 @@ const cookieParser = require("cookie-parser");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
-// app.set('view engine', 'ejs');
-// app.set('views', '/public');
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -26,7 +24,7 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 app.use(cookieParser());
 
 // Separated Routes for each Resource
@@ -48,10 +46,6 @@ app.use('/users', usersRoutes);
 app.get('/', (req, res) => {
   res.render('index');
 });
-
-app.get('polls', (req, res) => {
-  res.render('index');
-})
 
 // Require routers
 const polls = require('./routes/polls');

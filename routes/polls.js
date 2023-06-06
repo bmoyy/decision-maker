@@ -20,9 +20,6 @@ router.get('/', (req, res) => {
   res.render('polls');
 });
 
-// router.get('/polls', function (req, res) {
-//   res.sendFile(__dirname + '../public/polls.html');
-// })
 
 // POST /polls/email
 // User enters email and submits email form
