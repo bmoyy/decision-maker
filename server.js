@@ -26,7 +26,7 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
 // Separated Routes for each Resource
