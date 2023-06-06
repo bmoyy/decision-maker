@@ -65,11 +65,12 @@ router.post('/', (req, res) => {
 
 // placeholder
 router.get('/:id', (req, res) => {
-  const id = req.param.id;
+  const id = req.params.id;
 
   getPoll(id)
     .then((data) => {
-      return res.render(':id', { data });
+      console.log(data);
+      return res.render('vote', { data });
     })
     .catch((err) => {
       console.log(err);

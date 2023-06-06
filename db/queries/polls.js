@@ -17,8 +17,7 @@ const createPoll = (poll) => {
 const getPoll = (id) => {
   return db.query(`
   SELECT * from polls
-  WHERE user_id = $1
-  RETURNING *;`, [id])
+  WHERE polls.id = $1;`, [id])
 .then((result) => {
   return (result.rows);
 })
