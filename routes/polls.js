@@ -69,7 +69,7 @@ router.get('/:id', (req, res) => {
 
   getPoll(id)
     .then((data) => {
-      return res.render(':id', { data });
+      return res.render('vote', { data });
     })
     .catch((err) => {
       console.log(err);

@@ -19,11 +19,11 @@ const getPoll = (id) => {
   SELECT * from polls
   WHERE user_id = $1
   RETURNING *;`, [id])
-.then((result) => {
-  return (result.rows);
-})
-.catch((err) => {
-  console.log(err.message);
-});
+    .then((result) => {
+      return (result.rows);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 module.exports = { createPoll, getPoll };
