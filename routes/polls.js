@@ -6,7 +6,7 @@ const db = require('../db/connection');
 const cookieParser = require("cookie-parser");
 
 const { addUser, checkForUser } = require('../db/queries/users');
-const { createPoll } = require('../db/queries/polls');
+const { createPoll, getPoll } = require('../db/queries/polls');
 
 const app = express();
 app.use(cookieParser());
@@ -55,8 +55,9 @@ router.post('/', (req, res) => {
 
   createPoll(pollData)
     .then((poll) => {
-      return res.render('link', {poll});
-    }).catch((err) => {
+      return res.render('link', { poll });
+    })
+    .catch((err) => {
       console.log(err);
     });
 
@@ -64,7 +65,15 @@ router.post('/', (req, res) => {
 
 // placeholder
 router.get('/:id', (req, res) => {
-  res.render('polls/:id');
+  const id = req.param.id;
+
+  getPoll(id)
+    .then((data) => {
+      return res.render('polls/:id', { data });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 module.exports = router;
