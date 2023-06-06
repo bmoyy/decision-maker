@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Decision Maker - Poll Created!</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Righteous&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
+  <link rel="stylesheet" href="/styles/link.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
+</head>
+
+<body>
+  <nav>
+    <span id="title">Decision Maker</span>
+    <div class="subtext">
+      <span>Create a New Poll</span>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="message">
+      <h3>Your poll has been created!</h3>
+    </section>
+    <section class="link">
+      <p>Here's a link for voters and for you to see the results:</p>
+      <a href="http://localhost:8080/polls/1">Poll 1</a>
+    </section>
+  </main>
+
+  <footer>
+    <button form="start-again" class="button" type="submit" id="start-again">START AGAIN</button>
+  </footer>
+
+</body>
+
+</html>
