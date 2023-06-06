@@ -21,4 +21,14 @@ const getUsers = () => {
     });
 };
 
-module.exports = { addUser, getUsers };
+const checkForUser = (user) => {
+  return db.query(`SELECT id FROM users WHERE email = $1;`, [user.email])
+  .then((result) => {
+    return (result.rows);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  })
+}
+
+module.exports = { addUser, getUsers, checkForUser };

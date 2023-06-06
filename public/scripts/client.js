@@ -1,18 +1,18 @@
 $(document).ready(() => {
 
-  $("#email-submit").on('submit', function(event) {
-    event.preventDefault();
-    const message = $("#email-submit").val();
-    console.log(message);
+  // $("#email-submit").on('submit', function(event) {
+  //   event.preventDefault();
+  //   const message = $("#email-submit").serialize();
 
-    $.ajax({
-      url: '/polls/email',
-      method: 'POST',
-    }).then((res) => {
-      console.log(res);
-    });
+  //   $.ajax({
+  //     url: '/polls/email',
+  //     method: 'POST',
+  //     data: message
+  //   }).then((res) => {
+  //     console.log(res);
+  //   });
 
-  });
+  // });
 
   $("#poll-input").on('submit', function(event) {
     event.preventDefault();

@@ -5,5 +5,5 @@ CREATE TABLE results (
   borda_value_1 INTEGER NOT NULL,
   borda_value_2 INTEGER NOT NULL,
   borda_value_3 INTEGER NOT NULL,
-  poll_id INTEGER REFERENCES polls(id),
+  poll_id INTEGER REFERENCES polls(id)
 );

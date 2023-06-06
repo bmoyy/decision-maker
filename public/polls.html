@@ -34,18 +34,8 @@
 
   <main class="container">
     <section class="new-poll">
-
-      <div class="email-box">
-        <div class="email-text">
-          <p>To get started, please enter your email</p>
-        </div>
-        <form method="POST" action="/polls/email" id="email-submit">
-          <input id="email-input" name="email" type="email" required></input>
-        </form>
-      </div>
-
       <div class="poll-question">
-        <form method="POST" action="/polls" id="poll-input" hidden>
+        <form method="POST" action="/polls" id="poll-input">
           <div class="question-text">
             <p>What is your question?</p>
           </div>
@@ -77,8 +67,7 @@
   </main>
 
   <footer>
-    <button form="email-submit" class="button" type="submit" id="email-submit">GET STARTED</button>
-    <button form="poll-input" class="button" type="submit" id="poll-submit" hidden>SUBMIT</button>
+    <button form="poll-input" class="button" type="submit" id="poll-submit">SUBMIT</button>
   </footer>
 
 </body>
