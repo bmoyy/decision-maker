@@ -6,10 +6,10 @@ const db = require('../db/connection');
 const cookieParser = require("cookie-parser");
 
 const { addUser, checkForUser } = require('../db/queries/users');
+const { createPoll } = require('../db/queries/polls');
 
 const app = express();
 app.use(cookieParser());
-app.set('view engine', 'html');
 
 // GET /polls
 // User loads app & form to enter email to create poll
@@ -20,7 +20,6 @@ router.get('/', (req, res) => {
   res.render('polls');
 });
 
-
 // POST /polls/email
 // User enters email and submits email form
 router.post('/email', (req, res) => {
@@ -29,14 +28,6 @@ router.post('/email', (req, res) => {
 
 checkForUser(user).then((result) => {
     if (!result.id) {
-      // addUser(user)
-      // .then((data) => {
-      //   res.cookie('userID',data[0].id);
-      //   console.log(data[0].id);
-      // })
-      // .catch((err) => {
-      //   console.log(err);
-      // })
       addUser(user);
       res.cookie('userEmail', userEmail);
       return res.redirect('/polls');
@@ -46,25 +37,24 @@ checkForUser(user).then((result) => {
   }).catch((err) => {
     console.log(err);
   });
-
-  // db.query(
-  //   'SELECT id FROM users WHERE email = $1', [userEmail]
-  // ).then((results) => {
-  //   if (results.rows[0] && results.rows[0].id) {
-  //     return res.cookies('userId', results.rows[0].id).status(201).end();
-  //   } else {
-  //     return db.query(
-  //       'INSERT INTO users (email) VALUES ($1) RETURNING id', [userEmail]
-  //     ).then((results) => {
-  //       if (results.rows[0] && results.rows[0].id) {
-  //         res.cookies('user_id', results.rows[0].id).status(201).end();
-  //       }
-  //     })
-  //   }
-  // }).catch((error) => {
-  //   res.status(500).end(error);
-  // })
 });
 
+router.post('/', (req,res) => {
+  const pollData = req.body;
+  console.log(pollData);
+
+  createPoll(pollData)
+  .then((poll) => {
+    return res.render('polls/:id', poll); // placeholder
+  }).catch((err) => {
+    console.log(err);
+  });
+  return res.send('working');
+})
+
+// placeholder
+router.get('/:id', (req, res) => {
+  res.render('polls/:id');
+})
 
 module.exports = router;

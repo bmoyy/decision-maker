@@ -14,19 +14,19 @@ $(document).ready(() => {
 
   // });
 
-  $("#poll-input").on('submit', function(event) {
-    event.preventDefault();
-    const encodedData = $('#poll-input').serialize();
+  // $("#poll-input").on('submit', function(event) {
+  //   event.preventDefault();
+  //   const encodedData = $('#poll-input').serialize();
 
-    $.ajax({
-      url: '/polls',
-      method: 'POST',
-      data: encodedData
-    }).then(() => {
-      console.log(encodedData);
-    });
+  //   $.ajax({
+  //     url: '/polls',
+  //     method: 'POST',
+  //     data: encodedData
+  //   }).then(() => {
+  //     console.log(encodedData);
+  //   });
 
-  });
+  // });
 
   $('#show-description').on('click', function(event) {
     event.preventDefault();
