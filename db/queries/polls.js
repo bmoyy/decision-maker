@@ -14,4 +14,16 @@ const createPoll = (poll) => {
     });
 };
 
-module.exports = { createPoll };
+const getPoll = (id) => {
+  return db.query(`
+  SELECT * from polls
+  WHERE user_id = $1
+  RETURNING *;`, [id])
+.then((result) => {
+  return (result.rows);
+})
+.catch((err) => {
+  console.log(err.message);
+});
+};
+module.exports = { createPoll, getPoll };
