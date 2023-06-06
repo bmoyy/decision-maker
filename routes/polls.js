@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
 
   createPoll(pollData)
     .then((poll) => {
-      return res.render('link', poll); // placeholder
+      return res.render('link', {poll});
     }).catch((err) => {
       console.log(err);
     });
