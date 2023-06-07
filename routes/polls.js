@@ -4,7 +4,7 @@
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
 const mailgun = new Mailgun(formData);
-const mg = mailgun.client({username: 'api', key: 'cac8127d7c1c3099ccc23fc61e41d999-6d1c649a-3d913324'});
+const mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY});
 
 
 const express = require('express');
