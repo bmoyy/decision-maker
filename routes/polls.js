@@ -71,6 +71,7 @@ router.post('/', (req, res) => {
         subject: "Thank you for using Decision Maker!",
         text: "Provided below are your links to vote and view poll results!",
         html: `<p>Provided below are your links to view poll results and vote!</p>
+        <h3>Finally, we'll have an answer to the question: ${poll[0].title}</h3>
         <a href="http://localhost:8080/polls/${poll[0].id}">Vote on Poll</a>
         <br>
         <a href="http://localhost:8080/polls/${poll[0].id}/result">Poll results</a>`
