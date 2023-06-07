@@ -134,12 +134,14 @@ router.post('/:id/vote', (req, res) => {
 
 router.get('/:id/result', (req, res) => {
   const id = req.params.id;
+  let choices = [];
+  let bordaSum = [];
   getPoll(id)
   .then((data) => {
     const pollObj = data[0];
     getTotalRanking(id)
     .then((result) => {
-      return res.render('result', { result, pollObj });
+      return res.render('result', { result, pollObj, choices, bordaSum });
     })
     .catch((err) => {
       console.log(err);
