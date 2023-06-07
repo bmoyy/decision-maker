@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 
 const { addUser, checkForUser } = require('../db/queries/users');
 const { createPoll, getPoll } = require('../db/queries/polls');
+const { castVote } = require('../db/queries/results');
 
 const app = express();
 app.use(cookieParser());
@@ -63,7 +64,6 @@ router.post('/', (req, res) => {
 
 });
 
-// placeholder
 router.get('/:id', (req, res) => {
   const id = req.params.id;
 
@@ -75,5 +75,15 @@ router.get('/:id', (req, res) => {
       console.log(err);
     });
 });
+
+router.post('/:id/vote', (req, res) => {
+  const votes = req.params.body;  // need to test with working vote page
+  votes.poll_id = req.params.id; // need to change castVote parameter (no poll id given from form)
+
+  castVote(votes)
+  .then((result) => {
+    return res.render('results', { result }) //not sure if we want it to renders results
+  })
+})
 
 module.exports = router;
