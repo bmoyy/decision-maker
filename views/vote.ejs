@@ -36,10 +36,16 @@
     <section class="poll-header">
       <h2><%= data[0].title %></h2>
     </section>
-    <section class="options">
-      <p><%= data[0].choice_1 %></p>
-      <p><%= data[0].choice_2 %></p>
-      <p><%= data[0].choice_3 %></p>
+    <section class="choices">
+      <div id="rank-one">
+        <p><%= data[0].choice_1 %></p>
+      </div>
+      <div id="rank-two">
+        <p><%= data[0].choice_2 %></p>
+      </div>
+      <div id="rank-three">
+        <p><%= data[0].choice_3 %></p>
+      </div>
     </section>
   </main>
 
