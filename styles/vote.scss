@@ -7,6 +7,14 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
+h2 {
+  font-size: 2.5em;
+}
 
+p {
+  font-size: 1.5em;
+  cursor: grab;
+}
