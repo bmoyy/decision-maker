@@ -17,14 +17,10 @@ const castVote = (votes) => {
     });
 };
 
-// front end calls this function three times, one for each choice.  the choice is borda_value_1, borda_value_2, borda_value_3
-const getSumOfChoice = (choice, poll_id) => {
+const getTotalRanking = (poll_id) => {
   return db.query(`
-  SELECT SUM($1) FROM results
-  WHERE poll_id = $2;`, [choice, poll_id])
+  SELECT SUM(results.borda_value_1) as total_choice_1, SUM(results.borda_value_2) as total_choice_2, SUM(results.borda_value_3) as total_choice_3 FROM results
+  WHERE poll_id = $1;`, [poll_id])
 };
 
-
-module.exports = { castVote, getSumOfChoice };
-
-
+module.exports = { castVote, getTotalRanking };
