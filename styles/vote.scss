@@ -1,4 +1,5 @@
 $font-color: #FFFFFF;
+$secondary-color: #24243E;
 $body-font: "Acme", sans-serif;
 
 main {
@@ -28,6 +29,25 @@ h2 {
   flex-direction: column;
   justify-content: space-evenly;
   font-size: 1.5em;
+  margin: 0 15px;
+}
+
+.ranking-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.ranking-buttons button {
+  margin: 3px 15px;
+  background-color: $font-color;
+  border-radius: 50%;
+  padding: 0px 20px;
+}
+
+.ranking-buttons i {
+  color: $secondary-color;
+  font-size: 0.60em;
 }
 
 .choice {
@@ -36,12 +56,12 @@ h2 {
   padding: 5px 20px;
   margin: 20px 0;
   background-color: $font-color;
-  color: #24243E;
+  color: $secondary-color;
   border-radius: 10px;
   box-shadow: 2px 2px 2px $font-color;
 }
 
 .choice:hover {
-  background-color: #24243E;
+  background-color: $secondary-color;
   color: $font-color;
 }

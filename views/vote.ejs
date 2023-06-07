@@ -19,6 +19,10 @@
   <link rel="stylesheet" href="/styles/footer.css" />
   <link rel="stylesheet" href="/styles/vote.css" />
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
     integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
@@ -65,6 +69,11 @@
               <%= data[0].choice_3 %>
             </p>
           </div>
+        </section>
+        <section class="ranking-buttons">
+          <span class="move-1"><button><i class="fa-solid fa-arrow-down"></i></button></span>
+          <span class="move-2"><button><i class="fa-solid fa-arrow-up"></i></button><button><i class="fa-solid fa-arrow-down"></i></button></span>
+          <span class="move-3"><button><i class="fa-solid fa-arrow-up"></i></button></span>
         </section>
       </div>
       <input type="hidden" name="choicesRanked" id="choicesRanked" value="choice-one,choice-two,choice-three" />
