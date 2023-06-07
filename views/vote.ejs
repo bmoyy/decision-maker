@@ -43,23 +43,30 @@
           <%= data[0].title %>
         </h2>
       </section>
-      <section class="choices">
-        <div class="choice" id="choice-one">
-          <p>
-            <%= data[0].choice_1 %>
-          </p>
-        </div>
-        <div class="choice" id="choice-two">
-          <p>
-            <%= data[0].choice_2 %>
-          </p>
-        </div>
-        <div class="choice" id="choice-three">
-          <p>
-            <%= data[0].choice_3 %>
-          </p>
-        </div>
-      </section>
+      <div class="choices">
+        <section class="ranking-labels">
+          <p>First choice:</p>
+          <p>Second choice:</p>
+          <p>Third choice:</p>
+        </section>
+        <section class="sortable">
+          <div class="choice" id="choice-one">
+            <p>
+              <%= data[0].choice_1 %>
+            </p>
+          </div>
+          <div class="choice" id="choice-two">
+            <p>
+              <%= data[0].choice_2 %>
+            </p>
+          </div>
+          <div class="choice" id="choice-three">
+            <p>
+              <%= data[0].choice_3 %>
+            </p>
+          </div>
+        </section>
+      </div>
       <input type="hidden" name="choicesRanked" id="choicesRanked" value="choice-one,choice-two,choice-three" />
     </form>
   </main>
