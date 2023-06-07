@@ -1,5 +1,12 @@
 "use strict";
 
+//mailgun
+const formData = require('form-data');
+const Mailgun = require('mailgun.js');
+const mailgun = new Mailgun(formData);
+const mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY});
+
+
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
@@ -56,6 +63,21 @@ router.post('/', (req, res) => {
 
   createPoll(pollData)
     .then((poll) => {
+
+      //sends email to creator
+      mg.messages.create('sandboxaec54a8b2ab745aba97cc44960e92776.mailgun.org', {
+        from: "Decision Maker <mailgun@sandboxaec54a8b2ab745aba97cc44960e92776.mailgun.org>",
+        to: [`${user.email}`],
+        subject: "Thank you for using Decision Maker!",
+        text: "Provided below are your links to vote and view poll results!",
+        html: `<p>Provided below are your links to view poll results and vote!</p>
+        <a href="http://localhost:8080/polls/${poll[0].id}">Vote on Poll</a>
+        <br>
+        <a href="http://localhost:8080/polls/${poll[0].id}/result">Poll results</a>`
+      })
+      .then(msg => console.log(msg))
+      .catch(err => console.log(err));
+
       return res.render('link', { poll });
     })
     .catch((err) => {
