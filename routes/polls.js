@@ -99,12 +99,31 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/:id/vote', (req, res) => {
-  const votes = req.params.body;  // need to test with working vote page
-  votes.poll_id = req.params.id; // need to change castVote parameter (no poll id given from form)
-
+  let borda_value_1 = 0;
+  let borda_value_2 = 0;
+  let borda_value_3 = 0;
+  const poll_id = req.params.id;
+  const votesArray = req.body.choicesRanked.split(',');
+  for (let index in votesArray) {
+    if (votesArray[index] === 'choice-one') {
+      borda_value_1 =  Number(index) + 1;
+    }
+    if (votesArray[index] === 'choice-two') {
+      borda_value_2 = Number(index) + 1;
+    }
+    if (votesArray[index] === 'choice-three') {
+      borda_value_3 = Number(index) + 1;
+    }
+  }
+  const votes = {
+    borda_value_1,
+    borda_value_2,
+    borda_value_3,
+    poll_id
+  };
   castVote(votes)
-  .then((result) => {
-    return res.render('results', { result }) //not sure if we want it to render results
+  .then(() => {
+    res.redirect(`/polls/${poll_id}/result`);
   })
   .catch((err) => {
     console.log(err);
@@ -112,9 +131,6 @@ router.post('/:id/vote', (req, res) => {
 })
 
 router.get('/:id/result', (req, res) => {
-
-  // temp code to format front end
-  // add .then, .catch to getTotalRanking function
   const id = req.params.id;
 
   getTotalRanking(id)
