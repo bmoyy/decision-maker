@@ -20,7 +20,9 @@
   <link rel="stylesheet" href="/styles/vote.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
+    integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/vote.js"></script>
 </head>
@@ -34,24 +36,36 @@
   </nav>
 
   <main class="container">
-    <section class="poll-header">
-      <h2><%= data[0].title %></h2>
-    </section>
-    <section class="choices">
-      <div class="choice" id="rank-one">
-        <p><%= data[0].choice_1 %></p>
-      </div>
-      <div class="choice" id="rank-two">
-        <p><%= data[0].choice_2 %></p>
-      </div>
-      <div class="choice" id="rank-three">
-        <p><%= data[0].choice_3 %></p>
-      </div>
-    </section>
+    <form method="POST" action="/polls/<%= data[0].id %>/vote" id="ordered-choices">
+      <input type="hidden" name="poll-id" id="poll-id" value="<%= data[0].id %>" />
+      <section class="poll-header">
+        <h2>
+          <%= data[0].title %>
+        </h2>
+      </section>
+      <section class="choices">
+        <div class="choice" id="choice-one">
+          <p>
+            <%= data[0].choice_1 %>
+          </p>
+        </div>
+        <div class="choice" id="choice-two">
+          <p>
+            <%= data[0].choice_2 %>
+          </p>
+        </div>
+        <div class="choice" id="choice-three">
+          <p>
+            <%= data[0].choice_3 %>
+          </p>
+        </div>
+      </section>
+      <input type="hidden" name="choicesRanked" id="choicesRanked" value="" />
+    </form>
   </main>
 
   <footer>
-    <button form="poll-input" class="button" type="submit" id="poll-submit">VOTE</button>
+    <button form="ordered-choices" class="button" type="submit">VOTE</button>
   </footer>
 
 </body>
