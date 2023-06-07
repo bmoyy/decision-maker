@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 
 const { addUser, checkForUser } = require('../db/queries/users');
 const { createPoll, getPoll } = require('../db/queries/polls');
-const { castVote } = require('../db/queries/results');
+const { castVote, getTotalRanking } = require('../db/queries/results');
 
 const app = express();
 app.use(cookieParser());
