@@ -82,8 +82,26 @@ router.post('/:id/vote', (req, res) => {
 
   castVote(votes)
   .then((result) => {
-    return res.render('results', { result }) //not sure if we want it to renders results
+    return res.render('results', { result }) //not sure if we want it to render results
   })
+  .catch((err) => {
+    console.log(err);
+  });
+})
+
+router.get('/:id/result', (req, res) => {
+
+  // temp code to format front end
+  // add .then, .catch to getTotalRanking function
+  const id = req.params.id;
+
+  getTotalRanking(id)
+  .then((result) => {
+    return res.render('result', { result });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 })
 
 module.exports = router;

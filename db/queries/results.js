@@ -9,7 +9,6 @@ const castVote = (votes) => {
     VALUES ($1, $2, $3, $4)
     RETURNING *;`, vote)
     .then((result) => {
-      console.log(result.rows);
       return (result.rows);
     })
     .catch((err) => {
@@ -21,6 +20,13 @@ const getTotalRanking = (poll_id) => {
   return db.query(`
   SELECT SUM(results.borda_value_1) as total_choice_1, SUM(results.borda_value_2) as total_choice_2, SUM(results.borda_value_3) as total_choice_3 FROM results
   WHERE poll_id = $1;`, [poll_id])
+    .then((result) => {
+      return (result.rows);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
+
 
 module.exports = { castVote, getTotalRanking };
