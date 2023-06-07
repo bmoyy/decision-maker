@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="/styles/vote.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/vote.js"></script>
 </head>
@@ -37,13 +38,13 @@
       <h2><%= data[0].title %></h2>
     </section>
     <section class="choices">
-      <div id="rank-one">
+      <div class="choice" id="rank-one">
         <p><%= data[0].choice_1 %></p>
       </div>
-      <div id="rank-two">
+      <div class="choice" id="rank-two">
         <p><%= data[0].choice_2 %></p>
       </div>
-      <div id="rank-three">
+      <div class="choice" id="rank-three">
         <p><%= data[0].choice_3 %></p>
       </div>
     </section>

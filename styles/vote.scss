@@ -14,7 +14,22 @@ h2 {
   font-size: 2.5em;
 }
 
-p {
+.choice {
   font-size: 1.5em;
-  cursor: grab;
+  cursor: move;
+  padding: 5px 20px;
+  margin: 20px 0;
+  background-color: $font-color;
+  color: #24243E;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px $font-color;
+}
+
+.choice:hover {
+  background-color: #24243E;
+  color: $font-color;
+}
+
+.choice.ui-draggable-dragging {
+  box-shadow: 2px 2px solid black;
 }
