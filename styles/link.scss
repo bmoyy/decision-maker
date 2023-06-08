@@ -16,22 +16,22 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-section a {
-  background-color: $font-color;
-  color: $secondary-color;
-  padding: 15px 30px;
-  border-radius: 10px;
-  border: 1px solid $secondary-color;
-  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
-  transition: all 200ms ease-in-out;
-}
+  a {
+    background-color: $font-color;
+    color: $secondary-color;
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: 1px solid $secondary-color;
+    box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
+    transition: all 200ms ease-in-out;
+  }
 
-section a:hover {
-  background-color: $secondary-color;
-  color: $font-color;
-  border: 1px solid $font-color;
+  a:hover {
+    background-color: $secondary-color;
+    color: $font-color;
+    border: 1px solid $font-color;
+  }
 }
 
 footer a {
