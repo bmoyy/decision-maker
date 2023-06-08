@@ -30,5 +30,15 @@ const checkForUser = (user) => {
     console.log(err.message);
   })
 }
+const checkUserId = (user) => {
+  return db.query(`SELECT * FROM users WHERE id = $1;`, [user.id])
+  .then((result) => {
+    return (result.rows);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  })
+}
 
-module.exports = { addUser, getUsers, checkForUser };
+
+module.exports = { addUser, getUsers, checkForUser,checkUserId };
