@@ -35,11 +35,12 @@ section a:hover {
 }
 
 footer a {
+  display: flex;
+  align-items: center;
+  padding: 10px;
   text-decoration: none;
 }
 
 footer a:visited {
   color: $secondary-color;
 }
-
-

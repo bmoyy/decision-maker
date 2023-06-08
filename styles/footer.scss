@@ -1,3 +1,6 @@
+$font-color: #FFFFFF;
+$secondary-color: #24243E;
+
 footer {
   height: 120px;
   background-color: #FFFFFF;
@@ -11,7 +14,7 @@ footer {
   align-items: center;
 }
 
-#email-submit {
+button {
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
@@ -25,15 +28,23 @@ footer {
 @media only screen and (min-width: 1024px) {
 
 footer {
-
   position: relative;
   width: auto;
   height: 80px;
+  border-radius: 15px;
+}
+
+.switch {
+  height: 100%;
+  width: 100%;
+  font-size: 30px;
+  padding: 10px;
   border-radius: 12px;
 }
 
-#email-submit {
-  font-size: 30px;
+.switch:hover {
+  background-color: $secondary-color;
+  color: $font-color;
 }
 
 }
