@@ -46,6 +46,9 @@
         <h2>
           <%= data[0].title %>
         </h2>
+        <% if (data[0].description) { %>
+        <p><%= data[0].description %></p>
+        <% } %>
         <p class="arrow-instruction">Use the arrow buttons to re-arrange the choices from most preferred at the top to least preferred at the bottom</p>
         <p class="drag-instruction">Drag the choices with the mouse and drop them in order from most preferred at the top to least preferred at the bottom</p>
         <button type="button" id="toggle-buttons">Use buttons instead</button>
