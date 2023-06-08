@@ -1,5 +1,24 @@
 $(function() {
   const allChoices = $('.sortable');
+
+  $(allChoices).sortable({
+    items: "div",
+    stop: function(event, ui) {
+      const array = $(allChoices).sortable("toArray");
+      $(rankedChoicesInput).val(array);
+    }
+  });
+
+  $("#toggle-buttons").on('click', function() {
+    $(allChoices).sortable('cancel');
+    $(allChoices).sortable('disable');
+    $('.drag-instruction').css('display', 'none');
+    $('.arrow-instruction').css('display', 'block');
+    $('.ranking-buttons').css('display', 'flex');
+    $('.choice').css('cursor', 'default');
+    $('#toggle-buttons').css('display', 'none');
+  })
+
   const rankedChoicesInput = $('#choicesRanked');
 
   $(".move-1, .move-2").on("click", function() {
@@ -30,11 +49,4 @@ $(function() {
     $(rankedChoicesInput).val([firstElement[0].id, secondElement[0].id, thirdElement[0].id]);
   });
 
-  $(allChoices).sortable({
-    items: "div",
-    stop: function(event, ui) {
-      const array = $(allChoices).sortable("toArray");
-      $(rankedChoicesInput).val(array);
-    }
-  });
 });
