@@ -182,8 +182,11 @@ router.get('/:id/result', (req, res) => {
         return b.total - a.total;
       });
 
-      const winner = choices[0];
-      return res.render('result', { result, pollObj, winner });
+      const mostPoints = choices[0].total;
+      const winners = choices.filter(choice => choice.total === mostPoints);
+      const winningChoices = winners.map(winner => winner.choice);
+
+      return res.render('result', { result, pollObj, winningChoices });
     })
     .catch((err) => {
       console.log(err);
