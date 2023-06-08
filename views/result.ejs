@@ -24,6 +24,8 @@
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/result.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -33,24 +35,45 @@
       <span>Create a New Poll</span>
     </div>
   </nav>
-
   <main class="container">
+
     <h2 id="results-title">Poll Results</h2>
     <h3 id="poll-question"><%= pollObj.title %></h3>
 
-    <div class="poll-results">
-      <% let choices = [
-        { choice: pollObj.choice_1, total: result[0].total_choice_1 },
-        { choice: pollObj.choice_2, total: result[0].total_choice_2 },
-        { choice: pollObj.choice_3, total: result[0].total_choice_3 }
-      ];
-
-      choices.sort((a, b) => b.total - a.total);
-
-      choices.forEach((choice) => { %>
-        <p><%= choice.choice %> has <%= choice.total %> points</p>
-      <% }); %>
+    <div id="chart-container">
+      <canvas id="myChart"></canvas>
     </div>
+
+    <script>
+      const ctx = document.getElementById('myChart');
+      let choice1 = '<%= pollObj.choice_1 %>';
+      let choice2 = '<%= pollObj.choice_2 %>';
+      let choice3 = '<%= pollObj.choice_3 %>';
+      let total1 = '<%= result[0].total_choice_1 %>';
+      let total2 = '<%= result[0].total_choice_2 %>';
+      let total3 = '<%= result[0].total_choice_3 %>';
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: [choice1, choice2, choice3],
+          datasets: [{
+            label: 'The voters say:',
+            data: [total1, total2, total3],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+
+
   </main>
 
   <footer>
