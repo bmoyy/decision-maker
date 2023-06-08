@@ -11,7 +11,7 @@ footer {
   align-items: center;
 }
 
-button {
+#email-submit {
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
@@ -20,4 +20,20 @@ button {
   outline: none;
   color: #24243E;
   font-size: 55px;
+}
+
+@media only screen and (min-width: 1024px) {
+
+footer {
+
+  position: relative;
+  width: auto;
+  height: 80px;
+  border-radius: 12px;
+}
+
+#email-submit {
+  font-size: 30px;
+}
+
 }
