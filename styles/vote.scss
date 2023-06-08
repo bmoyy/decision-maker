@@ -25,10 +25,10 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
 
-.poll-header p {
-  font-size: 1.25em;
+  p {
+    font-size: 1.25em;
+  }
 }
 
 .choices {
@@ -48,18 +48,18 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-}
 
-.ranking-buttons button {
-  margin: 3px 15px;
-  background-color: $font-color;
-  border-radius: 50%;
-  padding: 0px 20px;
-}
+  button {
+    margin: 3px 15px;
+    background-color: $font-color;
+    border-radius: 50%;
+    padding: 0px 20px;
+  }
 
-.ranking-buttons i {
-  color: $secondary-color;
-  font-size: 0.60em;
+  i {
+    color: $secondary-color;
+    font-size: 0.60em;
+  }
 }
 
 .drag-instruction, #toggle-buttons {

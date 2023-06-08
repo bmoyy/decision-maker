@@ -1,5 +1,6 @@
 $(function() {
   const allChoices = $('.sortable');
+  const rankedChoicesInput = $('#choicesRanked');
 
   $(allChoices).sortable({
     items: "div",
@@ -17,9 +18,7 @@ $(function() {
     $('.ranking-buttons').css('display', 'flex');
     $('.choice').css('cursor', 'default');
     $('#toggle-buttons').css('display', 'none');
-  })
-
-  const rankedChoicesInput = $('#choicesRanked');
+  });
 
   $(".move-1, .move-2").on("click", function() {
     let firstElement = $('#rank-one').children();
