@@ -13,13 +13,37 @@ const db = require('../db/connection');
 const cookieParser = require("cookie-parser");
 
 const { addUser, checkForUser, checkUserId } = require('../db/queries/users');
-const { getPoll, savePoll } = require('../db/queries/polls');
+const { createPoll, getPoll } = require('../db/queries/polls');
 const { castVote, getTotalRanking } = require('../db/queries/results');
 
 const app = express();
 app.use(cookieParser());
 
-let userEmail = '';
+//helper
+const savePoll = function(pollData, user, res) {
+  createPoll(pollData)
+  .then((poll) => {
+
+    mg.messages.create(`${process.env.MAILGUN_API_URL}`, {
+      from: `Decision Maker <mailgun@${process.env.MAILGUN_API_URL}>`,
+      to: [`${user.email}`],
+      subject: "Thank you for using Decision Maker!",
+      text: "Provided below are your links to vote and view poll results!",
+      html: `<p>Provided below are your links to view poll results and vote!</p>
+      <h3>Finally, we'll have an answer to the question: ${poll[0].title}</h3>
+      <a href="http://localhost:8080/polls/${poll[0].id}">Vote on Poll</a>
+      <br>
+      <a href="http://localhost:8080/polls/${poll[0].id}/result">Poll results</a>`
+    })
+    .then(msg => console.log(msg))
+    .catch(err => console.log(err));
+
+    return res.render('link', { poll });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+}
 
 // GET /polls
 // User loads app & form to enter email to create poll
@@ -33,7 +57,7 @@ router.get('/', (req, res) => {
 // POST /polls/email
 // User enters email and submits email form
 router.post('/email', (req, res) => {
-  userEmail = req.body.email;
+  let userEmail = req.body.email;
   const user = { email: userEmail };
 
   checkForUser(user).then((result) => {
@@ -79,7 +103,6 @@ router.get('/:id', (req, res) => {
 
 router.post('/:id/vote', (req, res) => {
   const voter = req.body.voter_name || 'A voter';
-  console.log(voter);
 
   let borda_value_1 = 0;
   let borda_value_2 = 0;
