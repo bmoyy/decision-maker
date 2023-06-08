@@ -149,7 +149,18 @@ router.get('/:id/result', (req, res) => {
     const pollObj = data[0];
     getTotalRanking(id)
     .then((result) => {
-      return res.render('result', { result, pollObj });
+      const choices = [
+        { choice: pollObj.choice_1, total: result[0].total_choice_1 },
+        { choice: pollObj.choice_2, total: result[0].total_choice_2 },
+        { choice: pollObj.choice_3, total: result[0].total_choice_3 }
+      ];
+
+      choices.sort(function(a, b) {
+        return b.total - a.total;
+      });
+
+      const winner = choices[0];
+      return res.render('result', { result, pollObj, winner });
     })
     .catch((err) => {
       console.log(err);
