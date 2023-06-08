@@ -1,4 +1,5 @@
 $font-color: #FFFFFF;
+$secondary-color: #24243E;
 $body-font: "Acme", sans-serif;
 
 p {
@@ -15,16 +16,6 @@ label {
   margin-right: 5px;
 }
 
-#poll-submit {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-  color: #24243E;
-  font-size: 55px;
-}
 
 #new-poll {
   display: flex;
