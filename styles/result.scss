@@ -1,4 +1,5 @@
 $font-color: #FFFFFF;
+$secondary-color: #24243E;
 $body-font: "Acme", sans-serif;
 
 main {
@@ -8,9 +9,6 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-
-.container {
   width: 90%;
 }
 
@@ -23,6 +21,29 @@ h3 {
   margin: 0;
 }
 
-a {
-  color: $font-color
+.winner {
+  font-size: 1.5em;
+  padding-bottom: 1em;
+}
+
+#chart-container {
+  height: 10em;
+}
+
+.borda-note {
+  padding-top: 1em;
+}
+.borda-link {
+  color: $font-color;
+}
+
+.foot-button {
+  color: $secondary-color;
+}
+
+@media only screen and (min-width:765px) {
+  #chart-container {
+    width: 40em;
+    height: 18em;
+  }
 }

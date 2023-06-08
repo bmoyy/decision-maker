@@ -36,30 +36,33 @@
     </div>
   </nav>
   <main class="container">
+    <div class="poll-results-info">
+      <h2>Poll Results</h2>
+      <h3>
+        <%= pollObj.title %>
+      </h3>
 
-    <h2>Poll Results</h2>
-    <h3>
-      <%= pollObj.title %>
-    </h3>
-
-    <div class="winner">
-      <p>The winner is: <%= winner.choice %></p>
+      <div class="winner">
+        <p>The winner is: <%= winner.choice %>
+        </p>
+      </div>
     </div>
 
     <div id="chart-container">
       <canvas id="myChart"></canvas>
     </div>
 
-    <p>Results were calculated using the <a href="https://en.wikipedia.org/wiki/Borda_count">Borda Count</a> method</p>
+    <p class="borda-note">Results were calculated using the <a class="borda-link"
+        href="https://en.wikipedia.org/wiki/Borda_count">Borda Count</a> method</p>
 
     <script>
       const ctx = document.getElementById('myChart');
-      let choice1 = '<%= pollObj.choice_1 %>';
-      let choice2 = '<%= pollObj.choice_2 %>';
-      let choice3 = '<%= pollObj.choice_3 %>';
-      let total1 = '<%= result[0].total_choice_1 %>';
-      let total2 = '<%= result[0].total_choice_2 %>';
-      let total3 = '<%= result[0].total_choice_3 %>';
+      const choice1 = '<%= pollObj.choice_1 %>';
+      const choice2 = '<%= pollObj.choice_2 %>';
+      const choice3 = '<%= pollObj.choice_3 %>';
+      const total1 = '<%= result[0].total_choice_1 %>';
+      const total2 = '<%= result[0].total_choice_2 %>';
+      const total3 = '<%= result[0].total_choice_3 %>';
       new Chart(ctx, {
         type: 'bar',
         data: {
@@ -67,7 +70,7 @@
           datasets: [{
             label: 'Points',
             data: [total1, total2, total3],
-            borderWidth: 1
+            backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(54, 162, 235, 0.8)', 'rgba(255, 205, 86, 0.8)'],
           }]
         },
         options: {
@@ -81,9 +84,31 @@
           scales: {
             y: {
               beginAtZero: true,
-              stepSize: 1
+              stepSize: 1,
+              ticks: {
+                color: '#c1bee3',
+                font: {
+                  size: 15,
+                }
+              }
+            },
+            x: {
+              ticks: {
+                color: '#c1bee3',
+                font: {
+                  size: 15,
+                }
+              }
             }
           },
+          plugins: {
+            legend: {
+              labels: {
+                usePointStyle: true,
+                color: '#a7a3d7',
+              },
+            }
+          }
         }
       });
 
@@ -93,8 +118,8 @@
   </main>
 
   <footer>
-    <button form="start-again" class="button" type="submit" id="start-again"><a href="http://localhost:8080/polls">START
-        AGAIN</a></button>
+    <button form="start-again" class="button" type="submit" id="start-again"><a class="foot-button"
+        href="http://localhost:8080/polls">START AGAIN</a></button>
   </footer>
 
 </body>
