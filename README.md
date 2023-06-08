@@ -31,12 +31,17 @@ This app was created in a week by Bastien Moy, Karma Mann, and Lindsay Ward as a
 
 ## Screenshots
 
-!["Screenshot of the landing page on mobile"](docs/mobile-landing-page.png)
+#### Mobile landing page
+!["Screenshot of the landing page on mobile"](docs/mobile-landing-page.png) 
 
+#### iPad poll creation page
 !["Screenshot of the poll creation on iPad"](docs/ipad-poll-creation.png)
 
+#### Desktop default vote page with draggable choices
 !["Screenshot of the vote on desktop using draggable choices"](docs/vote-desktop.png)
 
+#### Desktop vote page with arrow buttons
 !["Screenshot of the vote on mobile or using buttons"](docs/vote-buttons.png)
 
+#### Mobile results page
 !["Screenshot of the results page on mobile"](docs/mobile-results.png)

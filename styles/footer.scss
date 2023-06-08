@@ -19,10 +19,10 @@ button {
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
-  overflow: hidden;
   outline: none;
   color: #24243E;
   font-size: 40px;
+  position: relative;
 }
 
 @media only screen and (min-width: 1024px) {

@@ -44,3 +44,23 @@ footer a {
 footer a:visited {
   color: $secondary-color;
 }
+
+.fa-clipboard {
+  color: #FFFFFF;
+  padding: 10px;
+}
+
+.link-icons {
+  display: flex;
+  flex-direction: row;
+}
+
+.clipboard-message {
+  color: #FFFFFF;
+  font-size: 15px;
+  position: absolute;
+  bottom: 15px;
+  left: 35px;
+  width: 100px;
+  z-index: 0;
+}
