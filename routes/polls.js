@@ -178,15 +178,12 @@ router.get('/:id/result', (req, res) => {
         { choice: pollObj.choice_3, total: result[0].total_choice_3 }
       ];
 
-      choices.sort(function(a, b) {
-        return b.total - a.total;
-      });
+      choices.sort((a, b) => b.total - a.total);
 
       const mostPoints = choices[0].total;
       const winners = choices.filter(choice => choice.total === mostPoints);
-      const winningChoices = winners.map(winner => winner.choice);
 
-      return res.render('result', { result, pollObj, winningChoices });
+      return res.render('result', { result, pollObj, winners });
     })
     .catch((err) => {
       console.log(err);

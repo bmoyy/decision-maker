@@ -21,8 +21,11 @@
       </h3>
 
       <div class="winner">
-        <p>The winner is: <%= winningChoices.join(', ') %>
-        </p>
+        <% if (winners.length === 1) { %>
+          <p>The winner is: <%= winners[0].choice %></p>
+        <% } else { %>
+          <p>It's a tie! The top choices are: <%= winners.map(winner => winner.choice).join(", and ") %></p>
+        <% } %>
       </div>
     </div>
 
