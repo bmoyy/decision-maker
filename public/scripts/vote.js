@@ -34,7 +34,6 @@ $(function() {
     items: "div",
     stop: function(event, ui) {
       const array = $(allChoices).sortable("toArray");
-      console.log(array);
       $(rankedChoicesInput).val(array);
     }
   });
