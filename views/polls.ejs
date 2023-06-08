@@ -17,26 +17,26 @@
       <div class="poll-question">
         <form method="POST" action="/polls" id="poll-input">
           <p class="question-text">What is your question?</p>
-          <textarea placeholder="Enter question here..." name="title" id="question-input" required></textarea>
+          <textarea name="title" id="question-input" required></textarea>
           <div class="description">
-            <button type="button" id="show-description">Add a description</button>
-            <textarea placeholder="(Optional)" name="description" id="poll-description" hidden></textarea>
+            <button type="button" id="show-description">Add a description (optional)</button>
+            <textarea name="description" id="poll-description" hidden></textarea>
           </div>
           <p>What are your options?</p>
           <div class="choice-box">
             <div>
               <label for="choice-input-1">1.</label>
-              <input placeholder="Enter text here..." name="choice_1" id="choice-input-1" required></input>
+              <input name="choice_1" id="choice-input-1" required></input>
             </div>
             <br />
             <div>
               <label for="choice-input-2">2.</label>
-              <input placeholder="Enter text here..." name="choice_2" id="choice-input-2" required></input>
+              <input name="choice_2" id="choice-input-2" required></input>
             </div>
             <br />
             <div>
               <label for="choice-input-3">3.</label>
-              <input placeholder="Enter text here..." name="choice_3" id="choice-input-3" required></input>
+              <input name="choice_3" id="choice-input-3" required></input>
             </div>
             <div class="name_box">
               <input type="checkbox" id="require_name" name="require_name" checked>
