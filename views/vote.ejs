@@ -54,26 +54,43 @@
           <p>Third choice:</p>
         </section>
         <section class="sortable">
-          <div class="choice" id="choice-one">
-            <p>
-              <%= data[0].choice_1 %>
-            </p>
-          </div>
-          <div class="choice" id="choice-two">
-            <p>
-              <%= data[0].choice_2 %>
-            </p>
-          </div>
-          <div class="choice" id="choice-three">
-            <p>
-              <%= data[0].choice_3 %>
-            </p>
-          </div>
+          <span id="rank-one">
+            <div class="choice" id="choice-one">
+              <p>
+                <%= data[0].choice_1 %>
+              </p>
+            </div>
+          </span>
+          <span id="rank-two">
+            <div class="choice" id="choice-two">
+              <p>
+                <%= data[0].choice_2 %>
+              </p>
+            </div>
+          </span>
+          <span id="rank-three">
+            <div class="choice" id="choice-three">
+              <p>
+                <%= data[0].choice_3 %>
+              </p>
+            </div>
+          </span>
         </section>
         <section class="ranking-buttons">
-          <span class="move-1"><button><i class="fa-solid fa-arrow-down"></i></button></span>
-          <span class="move-2"><button><i class="fa-solid fa-arrow-up"></i></button><button><i class="fa-solid fa-arrow-down"></i></button></span>
-          <span class="move-3"><button><i class="fa-solid fa-arrow-up"></i></button></span>
+          <span class="move-1">
+            <button type="button"><i class="fa-solid fa-arrow-down"></i></button>
+          </span>
+          <span>
+            <span class="move-2">
+              <button type="button"><i class="fa-solid fa-arrow-up"></i></button>
+            </span>
+            <span class="move-3">
+              <button type="button"><i class="fa-solid fa-arrow-down"></i></button>
+            </span>
+          </span>
+          <span class="move-4">
+            <button type="button"><i class="fa-solid fa-arrow-up"></i></button>
+          </span>
         </section>
       </div>
       <input type="hidden" name="choicesRanked" id="choicesRanked" value="choice-one,choice-two,choice-three" />
