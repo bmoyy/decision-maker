@@ -4,7 +4,7 @@ nav {
   color: #FFFFFF;
   font-family: "Righteous", sans-serif;
   font-size: 35px;
-  padding: 2em;
+  padding: 1.5em;
   position: fixed;
   top: 0;
   width: 100%;
@@ -15,14 +15,10 @@ nav {
 }
 
 #title {
-  font-size: 55px;
+  font-size: 1.75em;
 }
 
 @media only screen and (min-width: 1024px) {
-  .subtext {
-    display: inline;
-  }
-
   nav {
     display: flex;
     justify-content: center;
