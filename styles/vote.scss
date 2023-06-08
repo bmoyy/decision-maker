@@ -13,15 +13,27 @@ main {
 
 h2 {
   font-size: 2.5em;
+  margin-bottom: 0;
 }
 
 .container {
   width: 90%;
 }
 
+.poll-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.poll-header p {
+  font-size: 1.25em;
+}
+
 .choices {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .ranking-labels {
@@ -50,6 +62,10 @@ h2 {
   font-size: 0.60em;
 }
 
+.drag-instruction, #toggle-buttons {
+  display: none;
+}
+
 .choice {
   font-size: 1.5em;
   cursor: move;
@@ -69,4 +85,33 @@ h2 {
 #voter_name {
   margin-top: 30px;
   margin-left: 10px;
+}
+
+@media only screen and (min-width:821px) {
+  .ranking-buttons {
+    display: none;
+  }
+  .arrow-instruction {
+    display: none;
+  }
+
+  .drag-instruction {
+    display: block;
+    text-align: center;
+  }
+
+  #toggle-buttons {
+    display: block;
+    font-size: 1em;
+    width: 15%;
+    color: $secondary-color;
+    background-color: $font-color;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px $font-color;
+  }
+
+  #toggle-buttons:hover {
+    background-color: $secondary-color;
+    color: $font-color;
+  }
 }
