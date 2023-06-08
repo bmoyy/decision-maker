@@ -1,0 +1,28 @@
+$font-color: #FFFFFF;
+$body-font: "Acme", sans-serif;
+
+main {
+  color: $font-color;
+  font-family: $body-font;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+  width: 90%;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+a {
+  color: $font-color
+}

@@ -17,12 +17,12 @@
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
   <link rel="stylesheet" href="/styles/footer.css" />
-  <link rel="stylesheet" href="/styles/link.css" />
+  <link rel="stylesheet" href="/styles/result.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/client.js"></script>
-  <script type="text/javascript" src="/scripts/result.js"></script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -37,12 +37,20 @@
   </nav>
   <main class="container">
 
-    <h2 id="results-title">Poll Results</h2>
-    <h3 id="poll-question"><%= pollObj.title %></h3>
+    <h2>Poll Results</h2>
+    <h3>
+      <%= pollObj.title %>
+    </h3>
+
+    <div class="winner">
+      <p>The winner is: <%= winner.choice %></p>
+    </div>
 
     <div id="chart-container">
       <canvas id="myChart"></canvas>
     </div>
+
+    <p>Results were calculated using the <a href="https://en.wikipedia.org/wiki/Borda_count">Borda Count</a> method</p>
 
     <script>
       const ctx = document.getElementById('myChart');
@@ -57,30 +65,38 @@
         data: {
           labels: [choice1, choice2, choice3],
           datasets: [{
-            label: 'The voters say:',
+            label: 'Points',
             data: [total1, total2, total3],
             borderWidth: 1
           }]
         },
         options: {
           indexAxis: 'y',
+          elements: {
+            bar: {
+              borderWidth: 2,
+            }
+          },
+          responsive: true,
           scales: {
             y: {
-              beginAtZero: true
+              beginAtZero: true,
+              stepSize: 1
             }
-          }
+          },
         }
       });
+
     </script>
 
 
   </main>
 
   <footer>
-    <button form="start-again" class="button" type="submit" id="start-again"><a href="http://localhost:8080/polls">START AGAIN</a></button>
+    <button form="start-again" class="button" type="submit" id="start-again"><a href="http://localhost:8080/polls">START
+        AGAIN</a></button>
   </footer>
 
 </body>
 
 </html>
-
