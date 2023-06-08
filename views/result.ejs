@@ -22,6 +22,8 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/result.js"></script>
+
 </head>
 
 <body>
@@ -33,9 +35,22 @@
   </nav>
 
   <main class="container">
-    <section class="message">
-      <h3>Here's the current results:</h3>
-    </section>
+    <h2 id="results-title">Poll Results</h2>
+    <h3 id="poll-question"><%= pollObj.title %></h3>
+
+    <div class="poll-results">
+      <% let choices = [
+        { choice: pollObj.choice_1, total: result[0].total_choice_1 },
+        { choice: pollObj.choice_2, total: result[0].total_choice_2 },
+        { choice: pollObj.choice_3, total: result[0].total_choice_3 }
+      ];
+
+      choices.sort((a, b) => b.total - a.total);
+
+      choices.forEach((choice) => { %>
+        <p><%= choice.choice %> has <%= choice.total %> points</p>
+      <% }); %>
+    </div>
   </main>
 
   <footer>
@@ -45,3 +60,4 @@
 </body>
 
 </html>
+

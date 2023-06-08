@@ -105,13 +105,13 @@ router.post('/:id/vote', (req, res) => {
   const votesArray = req.body.choicesRanked.split(',');
   for (let index in votesArray) {
     if (votesArray[index] === 'choice-one') {
-      borda_value_1 =  Number(index) + 1;
+      borda_value_1 =  votesArray.length - Number(index);
     }
     if (votesArray[index] === 'choice-two') {
-      borda_value_2 = Number(index) + 1;
+      borda_value_2 = votesArray.length - Number(index);
     }
     if (votesArray[index] === 'choice-three') {
-      borda_value_3 = Number(index) + 1;
+      borda_value_3 = votesArray.length - Number(index);
     }
   }
   const votes = {
@@ -120,6 +120,7 @@ router.post('/:id/vote', (req, res) => {
     borda_value_3,
     poll_id
   };
+
   castVote(votes)
   .then(() => {
     res.redirect(`/polls/${poll_id}/result`);
@@ -131,12 +132,14 @@ router.post('/:id/vote', (req, res) => {
 
 router.get('/:id/result', (req, res) => {
   const id = req.params.id;
+  let choices = [];
+  let bordaSum = [];
   getPoll(id)
   .then((data) => {
     const pollObj = data[0];
     getTotalRanking(id)
     .then((result) => {
-      return res.render('result', { result, pollObj });
+      return res.render('result', { result, pollObj, choices, bordaSum });
     })
     .catch((err) => {
       console.log(err);
