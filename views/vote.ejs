@@ -62,6 +62,12 @@
       </section>
       <input type="hidden" name="choicesRanked" id="choicesRanked" value="choice-one,choice-two,choice-three" />
     </form>
+    <% if(data[0].require_name='on' ){ %>
+      <div>
+        <label for="voter_name">Enter name: </label>
+        <input name="voter_name" id="voter_name" type="text" required></input>
+      </div>
+      <% } %>
   </main>
 
   <footer>

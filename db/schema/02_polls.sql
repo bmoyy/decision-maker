@@ -7,5 +7,6 @@ CREATE TABLE polls (
   choice_1 TEXT,
   choice_2 TEXT,
   choice_3 TEXT,
-  user_id INTEGER REFERENCES users(id)
+  user_id INTEGER REFERENCES users(id),
+  require_name TEXT DEFAULT NULL
 );

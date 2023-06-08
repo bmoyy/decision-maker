@@ -1,10 +1,10 @@
 const db = require('../connection');
 
 const createPoll = (poll) => {
-  const newPoll = [poll.title, poll.description, poll.choice_1, poll.choice_2, poll.choice_3, poll.user_id];
+  const newPoll = [poll.title, poll.description, poll.choice_1, poll.choice_2, poll.choice_3, poll.require_name, poll.user_id];
   return db.query(`
-    INSERT INTO polls (title, description, choice_1, choice_2, choice_3, user_id)
-    VALUES ($1, $2, $3, $4, $5, $6)
+    INSERT INTO polls (title, description, choice_1, choice_2, choice_3, require_name, user_id)
+    VALUES ($1, $2, $3, $4, $5, $6, $7)
     RETURNING *;`, newPoll)
     .then((result) => {
       return (result.rows);

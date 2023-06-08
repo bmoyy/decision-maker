@@ -37,12 +37,11 @@ router.post('/email', (req, res) => {
   const user = { email: userEmail };
 
   checkForUser(user).then((result) => {
-    if (!result.id) {
+    if (!result[0]) {
       addUser(user);
       res.cookie('userEmail', userEmail);
       return res.redirect('/polls');
     }
-    req.cookies.userId = result.id;
     return res.redirect('/polls');
   }).catch((err) => {
     console.log(err);
@@ -51,7 +50,7 @@ router.post('/email', (req, res) => {
 
 router.post('/', (req, res) => {
   const pollData = req.body;
-  const user = { email: userEmail };
+  const user = { email: req.cookies.userEmail };
 
   checkForUser(user)
     .then((result) => {
@@ -63,7 +62,6 @@ router.post('/', (req, res) => {
 
   createPoll(pollData)
     .then((poll) => {
-
       //sends email to creator
       mg.messages.create(`${process.env.MAILGUN_API_URL}`, {
         from: `Decision Maker <mailgun@${process.env.MAILGUN_API_URL}>`,

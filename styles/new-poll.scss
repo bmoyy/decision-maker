@@ -79,3 +79,11 @@ label {
 #poll-description, #question-input {
   resize: none;
 }
+
+.name_box {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 30px;
+  padding-top: 20px;
+}
