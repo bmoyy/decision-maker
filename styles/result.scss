@@ -23,6 +23,11 @@ h3 {
 
 footer a {
   text-decoration: none;
+  color:$secondary-color;
+}
+
+footer a:hover {
+  color: $font-color;
 }
 
 footer a:visited {
